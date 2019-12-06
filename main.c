@@ -3,7 +3,7 @@
 
 #include "RBtree.h"
 
-int reserve_check_number; //RBtree ¹è¿­¿¡ ÀúÀåÇÒ °ª
+int reserve_check_number; //RBtree ë°°ì—´ì— ì €ì¥í•  ê°’
 
 void group_20_aircraft_print();
 int main() {
@@ -12,11 +12,11 @@ int main() {
 	group_20_aircraft_print(); //air print
 	
 	int reserve_number;
-
+        printf("***********************************************************************************************************************\n");
 	while (1) {
-		printf(" \n 1  : ¿¹¾à ÇÏ±â \n");
-		printf(" 2  : ¿¹¾à Á¶È¸ \n");
-		printf(" 3  : ¿¹¾à Ãë¼Ò \n\n");
+		printf(" \n 1  : ì˜ˆì•½ í•˜ê¸° \n");
+		printf(" 2  : ì˜ˆì•½ ì¡°íšŒ \n");
+		printf(" 3  : ì˜ˆì•½ ì·¨ì†Œ \n\n");
 
 
 		while (1) {
@@ -27,21 +27,21 @@ int main() {
 
 			if (reserve_number == 1) {
 
-				printf("ÀÌ¸§ : ");
+				printf("ì´ë¦„ : ");
 				scanf("%s", reservation[reserve_check_number].name, 10);
 
-				printf("Ãâ¹ßÁö : ");
+				printf("ì¶œë°œì§€ : ");
 				scanf("%s", reservation[reserve_check_number].source, 20);
 
-				printf("µµÂøÁö : ");
+				printf("ë„ì°©ì§€ : ");
 				scanf("%s", reservation[reserve_check_number].destination, 20);
 
 
-				printf("Ãâ¹ß ³¯Â¥ : ");
+				printf("ì¶œë°œ ë‚ ì§œ : ");
 				scanf("%d", &reservation[reserve_check_number].date);
 
-				printf("¿¹¾àÀ» ¿Ï·áÇÏ¿´½À´Ï´Ù.\n");
-				printf("¿¹¾à ¹øÈ£´Â  %d  ÀÔ´Ï´Ù\n\n", reserve_check_number);
+				printf("ì˜ˆì•½ì„ ì™„ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.\n");
+				printf("ì˜ˆì•½ ë²ˆí˜¸ëŠ”  %d  ì…ë‹ˆë‹¤\n\n", reserve_check_number);
 				reservation[reserve_check_number].reservation_number = reserve_check_number;
 	
 				array_RBTree[reserve_check_number] = reserve_check_number;
@@ -53,36 +53,36 @@ int main() {
 			else if (reserve_number == 2) {
 				int check=0;
 
-				printf("¿¹¾à ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+				printf("ì˜ˆì•½ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 				scanf("%d", &check);
 				printf("\n\n");
 				if (RBtree_search_node(t->root, check) != NULL) {
 
-					printf("¿¹¾à ¹øÈ£ : %d\n", reservation[check].reservation_number);
-					printf("°í°´ ÀÌ¸§ : %s\n", reservation[check].name, 10);
-					printf("Ãâ¹ßÁö     : %s\n", reservation[check].source);
-					printf("µµÂøÁö    : %s\n", reservation[check].destination);
-					printf("Ãâ¹ß³¯Â¥     : %d\n\n", reservation[check].date);
+					printf("ì˜ˆì•½ ë²ˆí˜¸ : %d\n", reservation[check].reservation_number);
+					printf("ê³ ê° ì´ë¦„ : %s\n", reservation[check].name, 10);
+					printf("ì¶œë°œì§€     : %s\n", reservation[check].source);
+					printf("ë„ì°©ì§€    : %s\n", reservation[check].destination);
+					printf("ì¶œë°œë‚ ì§œ     : %d\n\n", reservation[check].date);
 				}
 
 				else if(RBtree_search_node(t->root, check) == NULL)
-					printf("Á¶È¸µÇÁö ¾Ê´Â ¹øÈ£ ÀÔ´Ï´Ù.\n\n");
+					printf("ì¡°íšŒë˜ì§€ ì•ŠëŠ” ë²ˆí˜¸ ì…ë‹ˆë‹¤.\n\n");
 				break;
 			}
 			else if (reserve_number == 3) {
 				int check;
-				printf("¿¹¾à ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+				printf("ì˜ˆì•½ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 				scanf("%d", &check);
 				printf("\n\n");
 				if (RBtree_search_node(t->root, check) != NULL) {
 					RBtree_delete(t, (void*)check, compare_int);
-					printf("¿¹¾àÀÌ Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n\n");
+					printf("ì˜ˆì•½ì´ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
 				}
-				else printf("Á¶È¸µÇÁö ¾Ê´Â ¹øÈ£ ÀÔ´Ï´Ù.\n\n");
+				else printf("ì¡°íšŒë˜ì§€ ì•ŠëŠ” ë²ˆí˜¸ ì…ë‹ˆë‹¤.\n\n");
 				break;
 			}
 			else {
-				printf("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä !\n\n ");
+				printf("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš” !\n\n ");
 			}
 
 		}
@@ -95,7 +95,15 @@ int main() {
 }
 
 void group_20_aircraft_print() {
-	printf("         **** 20Á¶ ****\n");
+	
+	printf("               _                              _           ___   ___          _            _                  \n");
+	printf("              | |                            | |         |__ \\ / _ \\        (_)          | |                 \n");
+	printf(" __      _____| | ___ ___  _ __ ___   ___    | |_ ___       ) | | | |   __ _ _ _ __ _ __ | | __ _ _ __   ___ \n");
+	printf(" \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\   | __/ _ \\     / /| | | |  / _` | | '__| '_ \\| |/ _` | '_ \\ / _ \ \n");
+	printf("  \\ V  V /  __/ | (_| (_) | | | | | |  __/   | || (_) |   / /_| |_| | | (_| | | |  | |_) | | (_| | | | |  __/\n");
+	printf("   \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|    \\__\\___/   |____|\\___/   \\__,_|_|_|  | .__/|_|\\__,_|_| |_|\\___|\n");
+	printf("                                                                                   | |                       \n");
+	printf("                                                                                   |_|                       \n");
 	printf("                      ___\n");
 	printf("                      \\\\ \\ \n");
 	printf("                       \\\\ `\\ \n");
